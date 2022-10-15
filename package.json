@@ -1,0 +1,55 @@
+{
+  "name": "next-template",
+  "description": "A template of Next.js application on typescript with modern libaries",
+  "version": "0.1.0",
+  "keywords": [
+    "typescript",
+    "nextjs",
+    "reactjs",
+    "redux",
+    "react-query",
+    "emotion",
+    "mui"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.16",
+    "@reduxjs/toolkit": "^1.8.6",
+    "@tanstack/react-query": "^4.10.3",
+    "@tanstack/react-query-devtools": "^4.10.4",
+    "axios": "^1.1.2",
+    "classnames": "^2.3.2",
+    "dayjs": "^1.11.5",
+    "next": "^13.0.6",
+    "next-redux-wrapper": "^8.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-error-boundary": "^3.1.4",
+    "react-redux": "^8.0.4",
+    "ua-parser-js": "^1.0.2",
+    "uniqid": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/json-server": "^0.14.4",
+    "@types/node": "18.8.3",
+    "@types/ua-parser-js": "^0.7.36",
+    "@types/uniqid": "^5.3.2",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "chalk": "^5.1.2",
+    "eslint": "8.25.0",
+    "eslint-config-next": "12.3.1",
+    "json-server": "^0.17.1",
+    "sass": "^1.56.1",
+    "typescript": "4.8.4"
+  }
+}
