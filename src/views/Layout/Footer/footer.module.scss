@@ -1,0 +1,25 @@
+.footer {
+  position: sticky;
+  bottom: 0px;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: var(--header-footer-border);
+  background-color: var(--header-footer-background);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (prefers-color-scheme: dark) {
+    .logo img {
+      filter: invert(1);
+    }
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+}
