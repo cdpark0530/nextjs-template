@@ -7,11 +7,17 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { FC, memo } from "react";
+import { FC, memo, useMemo } from "react";
 import { Provider } from "react-redux";
+import {
+  persistStore,
+} from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 
 export default memo(function App({ Component, ...rest }: Props) {
   const { store, props } = storeWrapper.useWrappedStore(rest);
+
+  const persistor = useMemo(() => persistStore(store), [store]);
 
   const {
     pageProps: {
@@ -28,29 +34,33 @@ export default memo(function App({ Component, ...rest }: Props) {
     <Provider
       store={store}
     >
-      <QueryClientProvider
-        client={queryClient}
+      <PersistGate
+        persistor={persistor}
       >
-        <Hydrate state={dehydratedState}>
-          <ReactQueryDevtools initialIsOpen={false} />
-          <PageLayout>
-            <Head>
-              <meta charSet="utf-8" />
-              <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no"
-              />
-              <meta name="description" content={pageDescription} />
-              <meta name="author" content={pageAuthor} />
+        <QueryClientProvider
+          client={queryClient}
+        >
+          <Hydrate state={dehydratedState}>
+            <ReactQueryDevtools initialIsOpen={false} />
+            <PageLayout>
+              <Head>
+                <meta charSet="utf-8" />
+                <meta
+                  name="viewport"
+                  content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no"
+                />
+                <meta name="description" content={pageDescription} />
+                <meta name="author" content={pageAuthor} />
 
-              <title>{pageName}</title>
+                <title>{pageName}</title>
 
-              <link rel="icon" href="/images/icons/favicon.ico" />
-            </Head>
-            <Component {...props.pageProps} />
-          </PageLayout>
-        </Hydrate>
-      </QueryClientProvider>
+                <link rel="icon" href="/images/icons/favicon.ico" />
+              </Head>
+              <Component {...props.pageProps} />
+            </PageLayout>
+          </Hydrate>
+        </QueryClientProvider>
+      </PersistGate>
     </Provider>
   );
 });

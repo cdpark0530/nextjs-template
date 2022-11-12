@@ -1,15 +1,38 @@
 import { switchGroupSlice } from "@/components/switch-groups";
 import { contextSlice } from "@/context";
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistReducer,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 export const makeStore = () => {
-  const _store = configureStore({
-    reducer: {
+  const reducer = persistReducer(
+    {
+      key: "next-template",
+      storage,
+    },
+    combineReducers({
       [switchGroupSlice.name]: switchGroupSlice.reducer,
       [contextSlice.name]: contextSlice.reducer,
-    },
+    }),
+  );
+
+  const _store = configureStore({
+    reducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
   });
 
   store = _store;
