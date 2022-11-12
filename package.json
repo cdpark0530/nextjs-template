@@ -28,6 +28,7 @@
     "react-dom": "18.2.0",
     "react-error-boundary": "^3.1.4",
     "react-redux": "^8.0.4",
+    "redux-persist": "^6.0.0",
     "sass": "^1.55.0",
     "ua-parser-js": "^1.0.2",
     "uniqid": "^5.4.0"
