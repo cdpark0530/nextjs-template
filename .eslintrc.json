@@ -1,0 +1,326 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "import",
+    "import-newlines"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    // semantic rules
+    "no-duplicate-imports": 2,
+    "no-self-compare": 2,
+    "no-unused-vars": 0,
+    "react/no-unescaped-entities": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/display-name": 0,
+    "react/prop-types": 0,
+    "import/consistent-type-specifier-style": [
+      2,
+      "prefer-inline"
+    ],
+    "import/no-unassigned-import": [
+      2,
+      {
+        "allow": [
+          "**/*.css"
+        ]
+      }
+    ],
+    "import/order": [
+      2,
+      {
+        "newlines-between": "never",
+        "alphabetize": {
+          "order": "asc",
+          "orderImportKind": "asc",
+          "caseInsensitive": true
+        },
+        "groups": [
+          "object",
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "index",
+          "sibling",
+          "type"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "./*.css",
+            "group": "type",
+            "position": "after"
+          },
+          {
+            "pattern": "**/*.css",
+            "group": "type",
+            "position": "after"
+          },
+          {
+            "pattern": "./*.scss",
+            "group": "type",
+            "position": "after"
+          },
+          {
+            "pattern": "**/*.scss",
+            "group": "type",
+            "position": "after"
+          }
+        ]
+      }
+    ],
+    "import-newlines/enforce": [
+      2,
+      {
+        "items": 0
+      }
+    ],
+    // formatting rules
+    // line breaking
+    "linebreak-style": 2,
+    "eol-last": 2,
+    "no-multiple-empty-lines": [
+      2,
+      {
+        "max": 2,
+        "maxBOF": 1,
+        "maxEOF": 1
+      }
+    ],
+    "import/newline-after-import": [
+      2,
+      {
+        "count": 2
+      }
+    ],
+    "semi-style": 2,
+    "comma-style": 2,
+    "dot-location": [
+      2,
+      "property"
+    ],
+    "operator-linebreak": [
+      2,
+      "before"
+    ],
+    "multiline-ternary": [
+      2,
+      "always-multiline"
+    ],
+    "react/jsx-wrap-multilines": [
+      2,
+      {
+        "declaration": "parens-new-line",
+        "assignment": "parens-new-line",
+        "return": "parens-new-line",
+        "arrow": "parens-new-line",
+        "condition": "parens-new-line",
+        "logical": "parens-new-line",
+        "prop": "parens-new-line"
+      }
+    ],
+    "react/jsx-first-prop-new-line": [
+      2,
+      "always"
+    ],
+    "react/jsx-closing-bracket-location": [
+      2,
+      {
+        "selfClosing": false
+      }
+    ],
+    "react/jsx-curly-newline": [
+      2,
+      {
+        "multiline": "require"
+      }
+    ],
+    "object-curly-newline": [
+      2,
+      {
+        "ObjectExpression": "always",
+        "ObjectPattern": "always",
+        "ImportDeclaration": "always",
+        "ExportDeclaration": "always"
+      }
+    ],
+    "object-property-newline": [
+      2,
+      {
+        "allowAllPropertiesOnSameLine": true
+      }
+    ],
+    "array-element-newline": [
+      2,
+      {
+        "ArrayExpression": "consistent",
+        "ArrayPattern": {
+          "multiline": true
+        }
+      }
+    ],
+    "function-paren-newline": [
+      2,
+      "multiline-arguments"
+    ],
+    "function-call-argument-newline": [
+      2,
+      "consistent"
+    ],
+    "newline-per-chained-call": 2,
+    "implicit-arrow-linebreak": 2,
+    // spacing
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1,
+        "VariableDeclarator": "first",
+        "offsetTernaryExpressions": true
+      }
+    ],
+    "no-trailing-spaces": 2,
+    "no-multi-spaces": 2,
+    "semi-spacing": 2,
+    "space-unary-ops": 2,
+    "rest-spread-spacing": 2,
+    "keyword-spacing": 2,
+    "space-in-parens": 2,
+    "generator-star-spacing": 2,
+    "yield-star-spacing": 2,
+    "template-tag-spacing": 2,
+    "arrow-spacing": 2,
+    "block-spacing": 2,
+    "template-curly-spacing": 2,
+    "switch-colon-spacing": 2,
+    "key-spacing": 2,
+    "computed-property-spacing": 2,
+    "no-whitespace-before-property": 2,
+    "react/jsx-tag-spacing": [
+      2,
+      {
+        "beforeClosing": "never"
+      }
+    ],
+    // additional formatting which is specific to javascript and can be important to prevent coding mistakes
+    "no-extra-semi": 0,
+    "curly": [
+      2,
+      "all"
+    ],
+    "arrow-parens": 2,
+    "new-parens": 2,
+    "wrap-iife": [
+      2,
+      "inside"
+    ],
+    // additional formatting which is specific to javascript
+    "jsx-quotes": 2,
+    "comma-dangle": 0,
+    "dot-notation": 2
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts?(x)"
+      ],
+      "rules": {
+        // semantic rules
+        "@typescript-eslint/no-unused-vars": [
+          2,
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_"
+          }
+        ],
+        "@typescript-eslint/no-empty-function": 0,
+        "@typescript-eslint/no-empty-interface": 0,
+        "@typescript-eslint/no-namespace": 0,
+        "@typescript-eslint/no-non-null-assertion": 0,
+        "@typescript-eslint/no-explicit-any": [
+          0,
+          {
+            "ignoreRestArgs": true
+          }
+        ],
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "extendDefaults": true,
+            "types": {
+              "{}": false,
+              "Object": false,
+              "Function": false
+            }
+          }
+        ],
+        "import/consistent-type-specifier-style": [
+          2,
+          "prefer-inline"
+        ],
+        // formatting rules
+        // line breaking
+        "@typescript-eslint/lines-between-class-members": [
+          2,
+          {
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "@typescript-eslint/brace-style": [
+          "error",
+          "stroustrup"
+        ],
+        // spacing
+        "@typescript-eslint/comma-spacing": 2,
+        "@typescript-eslint/space-infix-ops": [
+          2,
+          {
+            "int32Hint": true
+          }
+        ],
+        "@typescript-eslint/space-before-function-paren": [
+          2,
+          {
+            "named": "never",
+            "anonymous": "always",
+            "asyncArrow": "always"
+          }
+        ],
+        "@typescript-eslint/func-call-spacing": 2,
+        "@typescript-eslint/space-before-blocks": 2,
+        "@typescript-eslint/object-curly-spacing": [
+          2,
+          "always"
+        ],
+        // additional formatting which is specific to javascript and can be important to prevent coding mistakes
+        "@typescript-eslint/semi": 2,
+        "@typescript-eslint/no-extra-parens": [
+          2,
+          "all",
+          {
+            "ignoreJSX": "all"
+          }
+        ],
+        // additional formatting which is specific to javascript
+        "@typescript-eslint/quotes": [
+          "error",
+          "double",
+          {
+            "allowTemplateLiterals": true
+          }
+        ],
+        "@typescript-eslint/comma-dangle": [
+          2,
+          "always-multiline"
+        ],
+        "@typescript-eslint/member-delimiter-style": 2
+      }
+    }
+  ]
+}
