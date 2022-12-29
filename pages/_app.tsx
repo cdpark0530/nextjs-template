@@ -1,3 +1,8 @@
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import CssBaseline from "@mui/material/CssBaseline";
 import {
   type NextPage,
 } from "next";
@@ -35,6 +40,7 @@ export default memo(function App({
           content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no"
         />
       </Head>
+      <CssBaseline />
       <PageLayout>
         <Component
           {...restPageProps} />
